@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class ExecuteScriptCommand extends CommandBase implements Command {

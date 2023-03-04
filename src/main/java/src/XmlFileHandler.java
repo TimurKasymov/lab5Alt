@@ -24,7 +24,7 @@ public class XmlFileHandler implements Loadable {
     /**
      * HashSet collection for keeping a collection as java-object
      */
-    private LinkedList<Product> products;
+    private Stack<Product> products;
 
     /**
      * Field for saving date of initialization thw collection
@@ -58,7 +58,7 @@ public class XmlFileHandler implements Loadable {
             initializationDate = ZonedDateTime.now();
             if (!xmlfile.exists()) {
                 System.out.println("0 products were downloaded");
-                products = new LinkedList<>();
+                products = new Stack<>();
                 return;
             }
             final QName qName = new QName("product");
@@ -74,7 +74,7 @@ public class XmlFileHandler implements Loadable {
             Collections.sort(products);
             System.out.println("loaded " + " products: " + products.size());
         } catch (Exception jaxbException) {
-            products = new LinkedList<>();
+            products = new Stack<Product>();
         }
     }
 
@@ -109,7 +109,7 @@ public class XmlFileHandler implements Loadable {
     }
 
     @Override
-    public LinkedList<Product> get() {
+    public Stack<Product> get() {
         return products;
     }
 }

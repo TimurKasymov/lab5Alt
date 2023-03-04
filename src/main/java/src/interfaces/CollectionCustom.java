@@ -8,7 +8,7 @@ public interface CollectionCustom<TEntity> {
     /** validates the list of items*/
     boolean validateData();
     /** returns the LinkedList of TEntity */
-    LinkedList<TEntity> get();
+    List<TEntity> get();
     /** returns the initialization time of the collection */
     LocalDateTime getInitializationTime();
     /** returns the type of element in the collection */

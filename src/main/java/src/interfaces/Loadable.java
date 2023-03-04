@@ -6,6 +6,7 @@ import java.io.File;
 import java.time.ZonedDateTime;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 public interface Loadable {
 
@@ -17,5 +18,5 @@ public interface Loadable {
     ZonedDateTime getInitializationTime();
 
     /** returns loaded collection */
-    LinkedList<Product> get();
+    Stack<Product> get();
 }

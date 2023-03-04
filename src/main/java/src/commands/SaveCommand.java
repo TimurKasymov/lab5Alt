@@ -17,6 +17,7 @@ public class SaveCommand extends CommandBase implements Command {
     public boolean execute(String[] args) {
         commandManager.getCollectionManager().save();
         commandManager.getUndoManager().saveLoggingFiles();
+        commandManager.getMessageHandler().displayToUser("collection was successfully saved");
         return true;
     }
 

@@ -15,12 +15,11 @@ import java.util.*;
 
 public class CollectionManager implements CollectionCustom<Product> {
 
-    private LinkedList<Product> products;
+    private List<Product> products;
     private File xmlfile;
     private final Loadable fileManager;
     private LocalDateTime initializationTime;
     private final MessageHandler messageHandler;
-    private UndoManager undoManager = null;
 
     public CollectionManager(Loadable fileManager, MessageHandler messageHandler) {
         this.fileManager = fileManager;
@@ -100,16 +99,13 @@ public class CollectionManager implements CollectionCustom<Product> {
             return m;
         });
 
-        if (ids.length < products.size() || minId < 1
-                || minOrganizationId < 1 || organizationIds.stream().count() < organizationIds.size()) {
-            return false;
-        }
-        return true;
+        return ids.length >= products.size() && minId >= 1
+                && minOrganizationId >= 1 && (long) organizationIds.size() >= organizationIds.size();
 
     }
 
     @Override
-    public LinkedList<Product> get() {
+    public List<Product> get() {
         return products;
     }
 
